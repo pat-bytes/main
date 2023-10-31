@@ -56,6 +56,7 @@
         <p>Ceci n'est pas un exemple de site web simple.</p>
 	<p id="visit-counter">Cette page a été visitée par : <span id="counter">0</span> blereaux.</p>
 	<button onclick="resetCounter()">Clear Blereaux</button>
+	<p id="ip-address">Adresse IP : en attente...</p>
     </section>
 
     <footer>
@@ -78,9 +79,20 @@
             document.getElementById('counter').textContent = '0';
         }
 
+	// Fonction pour récupérer l'adresse IP du client
+        function getIPAddress() {
+            fetch('https://ipinfo.io/json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').textContent = 'Adresse IP : ' + data.ip;
+                })
+                .catch(error => console.error(error));
+        }
+
         // Appeler la fonction au chargement de la page
         window.onload = function() {
             incrementCounter();
+	getIPAddress();
         };
     </script>
 
