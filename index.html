@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mon Site Web</h1>
+    </header>
+
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Bienvenue sur Mon Site Web</h2>
+        <p>Ceci est un exemple de site web simple.</p>
+	<p id="visit-counter">Cette page a été visitée <span id="counter">0</span> fois.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Mon Site Web</p>
+    </footer>
+
+
+<script>
+        // Fonction pour incrémenter le compteur de visites
+        function incrementCounter() {
+            let counter = localStorage.getItem('visitCounter');
+            counter = counter ? parseInt(counter) + 1 : 1;
+            localStorage.setItem('visitCounter', counter);
+            document.getElementById('counter').textContent = counter;
+        }
+
+        // Appeler la fonction au chargement de la page
+        window.onload = function() {
+            incrementCounter();
+        };
+    </script>
+
+
+</body>
+</html>
