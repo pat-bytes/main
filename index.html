@@ -50,6 +50,15 @@
    	//<a href="#">..</a>
     	//<a href="#">...</a>
     </nav>
+	<div>
+		<label for="query">Posez une question :</label>
+	        <input type="text" id="query" name="query">
+	        <button onclick="generateAnswer()">Obtenir une réponse</button>
+	</div>
+	<div id="response">
+        <!-- La réponse OpenAI sera affichée ici -->
+ 	</div>
+
 
     <section>
      	<p id="visit-counter">Cette page a été visitée par : <span id="counter">0</span> blereaux.</p>
@@ -57,6 +66,9 @@
 	<p id="ip-address">Adresse IP : en attente...</p>
     </section>
 
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="openai.js"></script>
 
 <script>
         // Fonction pour incrémenter le compteur de visites
