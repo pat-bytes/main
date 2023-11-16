@@ -1,107 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>C'est Pas Mon Site Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
 
-	<header>
-  	<h1>...</h1>
-  	</header>
+    <header>
+        <h1>Bienvenue sur Mon Site Web</h1>
+    </header>
 
     <nav>
-        //<a href="#">.</a>
-   	//<a href="#">..</a>
-    	//<a href="#">...</a>
+        <a href="#">Accueil</a>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
     </nav>
-	<div>
-		<label for="query">Posez une question :</label>
-	        <input type="text" id="query" name="query">
-	        <button onclick="generateAnswer()">Obtenir une réponse</button>
-	</div>
-	<div id="response">
-        <!-- La réponse OpenAI sera affichée ici -->
- 	</div>
 
+    <main>
+        <div>
+            <label for="query">Posez une question :</label>
+            <input type="text" id="query" name="query">
+            <button onclick="generateAnswer()">Obtenir une réponse</button>
+        </div>
+        <div id="response">
+            <!-- La réponse OpenAI sera affichée ici -->
+        </div>
 
-    <section>
-     	<p id="visit-counter">Cette page a été visitée par : <span id="counter">0</span> blereaux.</p>
-	<button onclick="resetCounter()">Clear Blereaux</button>
-	<p id="ip-address">Adresse IP : en attente...</p>
-    </section>
+        <section>
+            <p id="visit-counter">Cette page a été visitée par : <span id="counter">0</span> personnes.</p>
+            <button onclick="resetCounter()">Réinitialiser le compteur</button>
+            <p id="ip-address">Adresse IP : en attente...</p>
+        </section>
+    </main>
 
+    <footer>
+        <p>© 2023 C'est Pas Mon Site Web</p>
+    </footer>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="openai.js"></script>
-
-<script>
-        // Fonction pour incrémenter le compteur de visites
-        function incrementCounter() {
-            let counter = localStorage.getItem('visitCounter');
-            counter = counter ? parseInt(counter) + 1 : 1;
-            localStorage.setItem('visitCounter', counter);
-            document.getElementById('counter').textContent = counter;
-        }
-
-	// Fonction pour réinitialiser le compteur de visites
-        function resetCounter() {
-            localStorage.setItem('visitCounter', '0');
-            document.getElementById('counter').textContent = '0';
-        }
-
-	// Fonction pour récupérer l'adresse IP du client
-        function getIPAddress() {
-            fetch('https://ipinfo.io/json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address').textContent = 'Adresse IP : ' + data.ip;
-                })
-                .catch(error => console.error(error));
-        }
-
-        // Appeler la fonction au chargement de la page
-        window.onload = function() {
-            incrementCounter();
-	getIPAddress();
-        };
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
